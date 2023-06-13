@@ -1,163 +1,336 @@
-<!-- This is HTML file for taking basic information from the User-->
-<!doctype html>
-<html lang="en">
+<title>Brain Stroke Prediction</title>
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Home</title>
-</head>
+<Style>
+    :root {
+    font-size: 10px;
+    }
 
-<nav class="navbar navbar-dark bg-dark navbar-fixed-top">
-    <a class="navbar-brand" href="#">Stroke Risk Prediction</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/about">About</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+    *,
+    *::before,
+    *::after {
+    box-sizing: border-box;
+    }
 
-<body>
-    
-    <div class="container-fluid">
-        <div class="col-lg-12">
-                <form action="{{ url_for('result') }}" method="post">
-                    <br>
-                    <br>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4">
-                                <label for="gender">gender</label>
-                            </div>
-                            <div class="col-lg-8 col-md-8">
-                                <input type="text" class="form-control" id="gender" name="gender" placeholder="gender">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4">
-                                <label for="age">Age</label>
-                            </div>
-                            <div class="col-lg-8 col-md-8">
-                                <input type="text" class="form-control" id="age" name="age" placeholder="Enter your Age">
-                                    
-                                </select>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4">
-                                <label for="hypertension">hypertension  </label>
-                            </div>
-                            <div class="col-lg-8 col-md-8">
-                                <input type="text" class="form-control" id="hypertension" name="hypertension" placeholder="1 for Yes, 0 for No">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4">
-                                <label for="heart_disease">heart_disease </label>
-                            </div>
-                            <div class="col-lg-8 col-md-8">
-                                <input type="text" class="form-control" id="heart_disease" name="heart_disease" placeholder="1 for Yes, 0 for No">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4">
-                                <label for="ever_married">ever_married</label>
-                            </div>
-                            <div class="col-lg-8 col-md-8">
-                                <input type="text" class="form-control" id="ever_married" name="ever_married" placeholder="1 for Yes, 0 for No">
-                                    
-                                </select>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4">
-                                <label for="work_type">work_type </label>
-                            </div>
-                            <div class="col-lg-8 col-md-8">
-                                <input type="text" class="form-control" id="work_type" name="work_type" placeholder="0 for Govn Job, 1 for Never_worked, 2 for Private, 3 for Self-employed, 4 for children">
-                                    
-                                </select>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4">
-                                <label for="Residence_type">Residence_type</label>
-                            </div>
-                            <div class="col-lg-8 col-md-8">
-                                <input type="text" class="form-control" id="Residence_type" name="Residence_type" placeholder="for Urban 1, for Rural 0">
-                            </div>
-                        </div>
-                        <br>
-			<br>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4">
-                                <label for="avg_glucose_level">avg_glucose_level</label>
-                            </div>
-                            <div class="col-lg-8 col-md-8">
-                                <input type="text" class="form-control" id="avg_glucose_level" name="avg_glucose_level" placeholder="avg_glucose_level">
-                            </div>
-                        </div>
-                        <br>
-			<br>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4">
-                                <label for="bmi">bmi</label>
-                            </div>
-                            <div class="col-lg-8 col-md-8">
-                                <input type="text" class="form-control" id="bmi" name="bmi" placeholder="bmi">
-                            </div>
-                        </div>
-                        <br>
-			<br>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4">
-                                <label for="smoking_status">smoking_status</label>
-                            </div>
-                            <div class="col-lg-8 col-md-8">
-                                <input type="text" class="form-control" id="smoking_status" name="smoking_status" placeholder="0 for Unknown, 1 for formerly smoked, 2 for never smoked, 3 for smokes">
-                            </div>
-                        </div>
-                        <br>
-                        
-                        <br>
-                        <br>
-                        <center>
-                            <button type="submit" class="btn btn-dark" value="submit">Submit</button>
-                        </center>
-                </form>
-            </div>
+    body {
+    font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: black;
+    margin: 0;
+    background: linear-gradient(0deg, rgba(251,251,251,1) 0%, rgba(246,247,252,1) 100%);
+    }
+
+    h1 {
+    font-size: 3rem;
+    line-height: 2;
+    margin-bottom: 4rem;
+    }
+
+    img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    }
+
+    label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    }
+
+    button {
+    border: none;
+    }
+
+    .container {
+    width: 100%;
+    margin: 6rem auto 6rem auto;
+    box-shadow: 0 0.2rem 1.3rem 0.2rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    background-color: #fff;
+    }
+
+    @media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+    }
+
+    @media (min-width: 976px) {
+    .container {
+        max-width: 920px;
+    }
+    }
+
+    .header {
+    padding: 4.5rem;
+    margin-bottom: 2rem;
+    }
+
+    /*Header*/
+    .column-header {
+    float: left;
+    width: 54%;
+    padding-top: 5rem;
+    margin-right: 6%;
+    }
+
+    .column-image {
+    float: left;
+    width: 40%;
+    }
+
+    .header:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+    @media screen and (max-width: 1000px) {
+    .column-header,
+    .column-image {
+        width: 100%;
+        margin: 0;
+    }
+    #image-div img {
+        margin: auto;
+    }
+    }
+
+    /*Form*/
+
+    form {
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+    }
+
+    .form-group {
+    margin: 0 auto 2rem auto;
+    padding: 0.5rem;
+    }
+
+    .form-control {
+    display: block;
+    width: 100%;
+    height: 4.5rem;
+    padding: 1rem;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .form-control:focus {
+    border-color: #a6d8e2;
+    outline: 0;
+    box-shadow: 0 0 1rem 0.2rem rgba(205, 240, 247, 0.25);
+    }
+
+    .input-radio,
+    .input-checkbox {
+    display: inline-block;
+    margin-right: 1rem;
+    min-height: 1.5rem;
+    min-width: 1.5rem;
+    }
+
+    .input-textarea {
+    min-height: 120px;
+    width: 100%;
+    padding: 1rem;
+    resize: vertical;
+    }
+
+    .submit-button {
+    display: inline-block;
+    width: 10rem;
+    padding: 1rem;
+    background: #32004a;
+    color: #fff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    }
+
+    .submit-button:hover {
+    animation-name: background-color;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    }
+
+    @keyframes background-color {
+        100% {
+        background-color: #6f4c81;
+        }
+    }
+
+    .footer {
+    color: #28003b;
+    padding: 0.1rem;
+    text-align: center;
+    }
+
+    bold{
+        font-size: larger;
+    }
+</Style>
+<div class="container">
+  <div class="header">
+    <div class="column-header">
+      <h1 id="title">Brain Stroke prediction</h1>
+        <p id="description">Kindly fill the below form to predict wether you have chances of heart stroke or not.Remember that this model is only <bold >95 percent </bold>accuate.Please consider your doctor.</p>
+      </div>
+
+      <div class="column-image">
+        <div id="image-div">
+          <img src="https://raw.githubusercontent.com/sfoteini/responsive-web-design-freeCodeCamp/fa56b6ef1ca73e59e52153b0aae657717627adcf/survey-form/images/survey_icon.svg" width="400" height="400" alt="Survey form icon">
         </div>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-<style>
-body {
-    background-color: #626269;
-}
+    </div>
+  </div>
+  <!-- Name -->
+  <form id="survey-form" action="{{ url_for('result') }}" method="post">
+    <div class="form-group">
+      <label id="name-label" for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        class="form-control"
+        placeholder="Enter your name"
+        required
+      />
+    </div>
+    <!-- Email -->
+    <div class="form-group">
+      <label id="email-label" for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="form-control"
+        placeholder="Enter your Email"
+        required
+      />
+    </div>
+    <!-- age -->
+    <div class="form-group">
+      <label id="number-label" for="age">Age</label>
+      <input
+        type="number"
+        name="age"
+        id="number"
+        min="10"
+        max="99"
+        class="form-control"
+        placeholder="Age"
+      />
+    </div>
+    <!-- Gender -->
+    <div class="form-group">
+      <p for="gender">Gender</p>
+      <label><input name="gender" value="0" type="radio" class="input-radio" checked/>Male</label>
+      <label><input name="gender" value="1"  type="radio"  class="input-radio" />Female</label>
+      <label><input name="gender"  value="2" type="radio" class="input-radio"/>Others</label>
+    </div>
 
-.col-lg-4 {
-    color: #ffffff;
-}
-</style>
+   <!-- Hyper tension -->
+    <div class="form-group">
+      <p for="hypertension">Do you have any symptoms of Hypertension?</p>
+      <label><input name="hypertension" value="0" type="radio" class="input-radio" checked/>Yes</label>
+      <label><input name="hypertension" value="1"  type="radio"  class="input-radio" />No</label>
+    </div>
 
-</html>
+    <!-- Heart Disease -->
+    <div class="form-group">
+      <p for="heart_disease">Do you have any heart disease?</p>
+      <label><input name="heart_disease" value="0" type="radio" class="input-radio" checked/>Yes</label>
+      <label><input name="heart_disease" value="1"  type="radio"  class="input-radio" />No</label>
+    </div>
+
+    <!-- Ever Married -->
+    <div class="form-group">
+      <p for="ever_married">Have you ever married?</p>
+      <label><input name="ever_married" value="0" type="radio" class="input-radio" checked/>Yes</label>
+      <label><input name="ever_married" value="1"  type="radio"  class="input-radio" />No</label>
+    </div>
+
+    <!-- Work Type -->
+    <div class="form-group">
+      <p for="work_type">What type of work you perform?</p>
+      <label><input name="work_type" value="0" type="radio" class="input-radio" checked/>Government Employee</label>
+      <label><input name="work_type" value="2"  type="radio"  class="input-radio" />Private Employee</label>
+      <label><input name="work_type" value="3" type="radio" class="input-radio" checked/>Self Employeed</label>
+      <label><input name="work_type" value="4" type="radio" class="input-radio" checked/>Child</label>
+      <label><input name="work_type" value="1" type="radio" class="input-radio" checked/>Never Worked</label>
+    </div>
+
+    <!-- Resident Type -->
+    <div class="form-group">
+      <p for="Residence_type">In which Area do you live?</p>
+      <label><input name="Residence_type" value="0" type="radio" class="input-radio" checked/>Rural</label>
+      <label><input name="Residence_type" value="1"  type="radio"  class="input-radio" />Urban</label>
+    </div>
+
+
+    <!-- average Glucose level -->
+    <div class="form-group">
+      <label id="number-label" for="avg_glucose_level">What is your average Glucose level?</label>
+      <input
+        type="float"
+        name="avg_glucose_level" 
+        id="number"
+        class="form-control"
+        placeholder="average Glucose level"
+      />
+    </div>
+
+
+    <!-- BMI-->
+    <div class="form-group">
+      <label id="number-label" for="bmi">What is your BMI level?</label>
+      <input
+        type="float"
+        name="bmi" 
+        id="number"
+        class="form-control"
+        placeholder="BMI"
+      />
+    </div>
+
+
+    <div class="form-group" for = 'smoking_status'>
+      <p for="work_type">What is your smoking status?</p>
+      <label><input name="smoking_status" value="3" type="radio" class="input-radio" checked/>smokes</label>
+      <label><input name="smoking_status" value="1"  type="radio"  class="input-radio" />formerly smoked</label>
+      <label><input name="smoking_status" value="2" type="radio" class="input-radio" checked/>never smoked</label>
+      <label><input name="smoking_status" value="0" type="radio" class="input-radio" checked/>Unknown</label>
+    </div>
+
+
+    <div class="form-group">
+      <p>Any comments or suggestions?</p>
+      <textarea
+        id="comments"
+        class="input-textarea"
+        name="comment"
+        placeholder="Enter your comment here..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" id="submit" class="submit-button" value="submit">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,7 +1,5 @@
 # import All the necessary python packages
 from flask import Flask, render_template, request
-import joblib
-import os
 import numpy as np
 import pickle as pk
 
@@ -42,7 +40,7 @@ def result():
     # Load the model to predict the results
     with open('model/lr.sav', 'rb') as f:
         model = pk.load(f)
-    Y_pred = model.predict(x)
+    Y_pred = model[0].predict(x)
 
     # render the page based on the value of model prediction
     if Y_pred == 0:
