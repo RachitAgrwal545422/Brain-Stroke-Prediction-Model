@@ -1,4 +1,4 @@
-# Here we are predicting wether a user has chances of Brain stroke or not based on the famous AI algorithms.
+# Here we are predicting wether a user has chances of Heart stroke or not based on the famous AI algorithms.
 <br/>
 ## We are using logistic regression,KNN,SVM,decision Tree and random forest algorithms.
 <hr/>
